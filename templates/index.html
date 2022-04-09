@@ -1,44 +1,63 @@
 <!DOCTYPE html>
 <html>
+  <title> Box Plot </title>
 <head>
-    <meta charset="utf-8"/>
-    <title> Box Plot </title>
+    <meta charset="utf-8">
+    <title>Box Plot</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/styles.css') }}">
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <p class="navbar-brand">Box Plot</p>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li id="Welcome"><a href="/">Home Page</a></li>
+                <li id="History"><a href="/history">History</a></li>
+            </ul>
+        </div>
+    </nav>
 </head>
-<body bgcolor="aliceblue">
 
-<table border="" cellspacing="5" cellpadding="5" width="80%" height="100%" align="center">
-    <tr height="50">
-        <td colspan="2" align="center">
-            <h1>Box Plots for Moody2022</h1>
-        </td>
-    </tr>
-    <tr height="40%">
-        <td colspan="2" align="left">
-            <label>Please input your query:</label>
-            <form action="/" method="post">
-                <textarea rows="7" cols="150" name="sql_query">SELECT * FROM moody2022_new WHERE </textarea>
-                <br>
-                <button type="submit">PLOT</button>
-            </form>
-        </td>
-    </tr>
-    <tr height="40">
-        <td width="50%" height="100%">
-            <label>Distribution of Scores by Grade for all</label>
-        </td>
-        <td width="50%" height="100%">
-            <label>Distribution of Scores by Grade for customized condition</label>
-        </td>
-    </tr>
-    <tr height="40%">
-        <td width="50%" height="400">
-            <div id='chart1' class='chart'”></div>
-        </td>
-        <td width="50%" height="400">
-            <div id='chart2' class='chart'”></div>
-        </td>
-    </tr>
-</table>
+<body>
+<div class="container">
+    <table border="" cellspacing="5" cellpadding="5" width="80%"  align="center">
+        <tr >
+            <td colspan="2" align="center">
+                <h1>Box Plots for Moody2022</h1>
+            </td>
+        </tr>
+        <tr >
+            <td colspan="2" align="left">
+                <div class="intable"><label>Please input your query:</label></div>
+                <form action="/index" method="post">
+                    <div class="intable"><textarea rows="7" cols="100" name="sql_query">SELECT * FROM moody2022_new WHERE </textarea></div>
+                    <div class="intable"><button type="submit" class="btn btn-primary">PLOT</button></div>
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td width="50%" height="100%" >
+                    <label>    Distribution of Scores by Grade for all</label>
+            </td>
+            <td width="50%" height="100%" >
+                    <label>    Distribution of Scores by Grade for customized condition</label>
+            </td>
+        </tr>
+        <tr>
+            <td width="50%" height="400">
+                <div id='chart1' class='chart'></div>
+            </td>
+            <td width="50%" height="400">
+                <div id='chart2' class='chart'></div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div class="footer-padding"></div>
+<div class="footer"><p> Made with ❤️ by Chao Zhao</p></div>
 </body>
 
 <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>

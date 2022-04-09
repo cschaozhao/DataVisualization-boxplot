@@ -1,11 +1,38 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="utf-8">
-		<title></title>
+		<meta charset="UTF-8">
+		<title>Error page</title>
+		<script>
+			function countDown(){
+				var time = document.getElementById("Time");
+				if(time.innerHTML == 0){
+					window.location.href="/";
+				}else{
+					time.innerHTML = time.innerHTML-1;
+				}
+			}
+			window.setInterval("countDown()",1000);
+		</script>
+		<style>
+			#Time,#p{
+				font-size: 100px;
+				text-align: center;
+			}
+			#Font,#p{
+				font-size: 80px;
+				text-align: center;
+			}
+		</style>
 	</head>
 	<body>
-		<h1>Wrong Query, please Check!</h1>
-		<a href="./index.html">Go back</a>
+		<h1>Error, Wrong Syntax!</h1>
+		<font color="yellow"><p id="Time" >5</p></font>
+		<p id="Font">Back to welcome page!</p>
 	</body>
 </html>
+
+
+<!--————————————————-->
+<!--版权声明：本文为CSDN博主「劉叁尐」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。-->
+<!--原文链接：https://blog.csdn.net/qq_43021813/article/details/82820965-->
