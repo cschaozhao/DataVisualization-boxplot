@@ -43,10 +43,10 @@ def get_all_data():
 def get_query_data(s):
     if not s:
         return[]
-    engine = create_engine('mysql+pymysql://root:root@localhost:3306/boxplot', max_overflow=10)
+    engine = create_engine('mysql+pymysql://admin:root1234@boxplot.co5oyjgpvi8x.us-east-1.rds.amazonaws.com:3306/boxplot', max_overflow=10)
     s = s.lower()
     first_condition = " where "
-    base_sql = "select score from moody2022 "
+    base_sql = "select score from moody2022_new "
     for i in range(len(s) - 5):
         if (s[i:i + 5] == 'where'):
             first_condition = s[i:]
@@ -96,3 +96,6 @@ def queryHistory():
 if __name__ == '__main__':
     app.run()
 
+'''
+    AWS database mysql: /boxplot user:admin password: root1234 
+'''
