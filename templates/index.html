@@ -24,34 +24,29 @@
 <div class="container">
     <table border="" cellspacing="5" cellpadding="5" width="80%"  align="center">
         <tr >
-            <td colspan="2" align="center">
+            <td align="center">
                 <h1>Box Plots for Moody2022</h1>
             </td>
         </tr>
+
+        <tr>
+            <td height="400">
+                <div id='chart' class='chart'></div>
+            </td>
+        </tr>
+        <tr height="35">
+            <td>
+                   <label> &nbsp &nbsp Queried:  &nbsp &nbsp &nbsp &nbsp   </label>{{query_sentence}}
+            </td>
+        </tr>
         <tr >
-            <td colspan="2" align="left">
+            <td align="left">
                 <div class="intable"><label>Please input your query:</label></div>
                 <form action="/index" method="post">
                     <div class="intable"><textarea rows="7" cols="100" name="sql_query">SELECT * FROM moody2022_new WHERE </textarea></div>
                     <div class="intable"><button type="submit" class="btn btn-primary">PLOT</button></div>
-                    <label>Queried:</label>{{query_sentence}}
+
                 </form>
-            </td>
-        </tr>
-        <tr>
-            <td width="50%" height="100%" >
-                    <label>    Distribution of Scores by Grade for all</label>
-            </td>
-            <td width="50%" height="100%" >
-                    <label>    Distribution of Scores by Grade for customized condition</label>
-            </td>
-        </tr>
-        <tr>
-            <td width="50%" height="400">
-                <div id='chart1' class='chart'></div>
-            </td>
-            <td width="50%" height="400">
-                <div id='chart2' class='chart'></div>
             </td>
         </tr>
     </table>
@@ -63,10 +58,8 @@
 
 <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
 <script type='text/javascript'>
-  var graph1 = {{graph1 | safe}};
-  Plotly.plot('chart1',graph1,{});
-  var graph2 = {{graph2 | safe}};
-  Plotly.plot('chart2',graph2,{});
+  var graph1 = {{graph | safe}};
+  Plotly.plot('chart',graph1,{});
 </script>
 
 </html>
