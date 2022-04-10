@@ -22,8 +22,8 @@ def get_plot(data):
     return json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
 
 def get_all_data():
-    engine = create_engine('mysql+pymysql://root:root@localhost:3306/boxplot', max_overflow=10)
-    base_sql = "select score from moody2022 where "
+    engine = create_engine('mysql+pymysql://admin:root1234@boxplot.co5oyjgpvi8x.us-east-1.rds.amazonaws.com:3306/boxplot', max_overflow=10)
+    base_sql = "select score from moody2022_new where "
     conditions = []
     conditions.append("GRADE = 'A' ")
     conditions.append("GRADE = 'B' ")
@@ -94,8 +94,5 @@ def queryHistory():
     return render_template('history.html', his = history)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0', port=8080)
 
-'''
-    AWS database mysql: /boxplot user:admin password: root1234 
-'''
