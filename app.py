@@ -85,7 +85,7 @@ def start():
             del history[0]
         data = get_all_data()
         query_data = get_query_data(s)
-        return render_template('index.html', graph1=get_plot(data), graph2=get_plot(query_data))
+        return render_template('index.html', graph1=get_plot(data), graph2=get_plot(query_data), query_sentence=s)
     except:
         return render_template('fail.html')
 
